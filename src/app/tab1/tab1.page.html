@@ -13,5 +13,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <ion-card>
+    <ion-card-header>
+      <ion-input [(ngModel)]="inputCep" type="number" label='Informe um CEP' label-placement="floating" fill="solid" placeholder="55555555"></ion-input>
+      <ion-button (click)="consultarCep()">
+        Consultar
+        <ion-icon slot="end" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea [autoGrow]="true" value="{{textareaCep}}" wrap="soft" readonly="true" label="Dados do CEP" labelPlacement="floating" fill="outline" placeholder=""></ion-textarea>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViacepService } from '../services/viacep.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,22 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  inputCep: string = '';
+  textareaCep: string = '';
+
+  constructor(private viacepService: ViacepService) { }
+
+  ngOnInit() {
+    this.viacepService.getRemoteData('01001000').subscribe(data => {
+      console.log(data);
+    })
+  }
+
+  consultarCep() {
+    this.viacepService.getRemoteData(this.inputCep).subscribe(data => {
+      this.textareaCep = JSON.stringify(data);
+      console.log(data);
+    })
+  }
 
 }
