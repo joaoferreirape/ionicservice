@@ -23,6 +23,18 @@
       </ion-button>
     </ion-card-header>
     <ion-card-content>
+      <!-- <ion-input [(ngModel)]="outputCep" readonly="true" label="cep" label-placement="floating" fill="outline"></ion-input>
+      <br />
+      <ion-input [(ngModel)]="outputLogradouro" readonly="true" label="logradouro" label-placement="floating" fill="outline"></ion-input>
+      <br/> -->
+      <ion-list>
+        <ion-item *ngFor="let key of dataKeys;">
+          <ion-input readonly="true" label="{{key}}" label-placement="floating"
+            fill="outline"></ion-input>
+            <br />
+        </ion-item>
+      </ion-list>
+      <br />
       <ion-textarea [autoGrow]="true" value="{{textareaCep}}" wrap="soft" readonly="true" label="Dados do CEP" labelPlacement="floating" fill="outline" placeholder=""></ion-textarea>
     </ion-card-content>
   </ion-card>
