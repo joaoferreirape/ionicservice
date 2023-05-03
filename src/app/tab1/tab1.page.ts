@@ -7,11 +7,8 @@ import { ViacepService } from '../services/viacep.service';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  inputCep: string = ''; // Campo de busca
-  textareaCep: string = ''; // Valor do textarea
-  dataKeys: any;
-  cep: string = ''; // Campo de saída do CEP
-  logradouro: string = ''; // Campor de saída do Logradouro
+  inputInformeCEP: string = '';
+  textareaDadosCEP: string = '';
 
   constructor(private viacepService: ViacepService) {}
 
@@ -22,13 +19,9 @@ export class Tab1Page {
   }
 
   consultarCep() {
-    this.viacepService.getRemoteData(this.inputCep).subscribe((data) => {
-      this.textareaCep = JSON.stringify(data);
-      this.cep = JSON.parse(JSON.stringify(data)).cep;
-      this.logradouro = JSON.parse(JSON.stringify(data)).logradouro;
+    this.viacepService.getRemoteData(this.inputInformeCEP).subscribe((data) => {
+      this.textareaDadosCEP = JSON.stringify(data);
       console.log(data);
-      this.dataKeys = Object.keys(data);
-      console.log(this.dataKeys);
     });
   }
 }
